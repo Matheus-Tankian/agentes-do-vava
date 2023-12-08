@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -57,47 +59,57 @@ class HomeView extends StatelessWidget {
                     ),
                     itemCount: 10,
                     itemBuilder: (context, index) {
-                      return Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          ClipPath(
-                            clipper: RoundedDiagonalPathClipper(),
-                            child: Container(
-                              height: 190,
-                              width: 162,
-                              decoration: const BoxDecoration(
-                                gradient: AppColors.linearGreen,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20.0)),
+                      return InkWell(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () {
+                          log('card');
+                        },
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: [
+                            ClipPath(
+                              clipper: RoundedDiagonalPathClipper(),
+                              child: Container(
+                                height: 190,
+                                width: 162,
+                                decoration: const BoxDecoration(
+                                  gradient: AppColors.linearGreen,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20.0)),
+                                ),
                               ),
                             ),
-                          ),
-                          Image.asset(AppImages.viper),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Align(
-                              alignment: Alignment.bottomLeft,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'VIPER',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium!
-                                        .copyWith(color: AppColors.colorWhite),
-                                  ),
-                                  Text(
-                                    'Controllar',
-                                    style:
-                                        Theme.of(context).textTheme.titleSmall,
-                                  ),
-                                ],
+                            Image.asset(AppImages.viper),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Align(
+                                alignment: Alignment.bottomLeft,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'VIPER',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium!
+                                          .copyWith(
+                                              color: AppColors.colorWhite),
+                                    ),
+                                    Text(
+                                      'Controllar',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       );
                     },
                   ),
