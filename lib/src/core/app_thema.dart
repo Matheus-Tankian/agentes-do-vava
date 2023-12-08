@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vava/src/core/app_colors.dart';
 
 class Themas {
   ThemeData get customTheme {
@@ -16,17 +17,16 @@ class Themas {
         ),
         titleMedium: GoogleFonts.poppins(
           fontSize: 17,
-          color: const Color(0xFFE55566),
+          color: AppColors.redGray,
           fontWeight: FontWeight.bold,
         ),
         titleSmall: GoogleFonts.poppins(
           fontSize: 14,
-          color: const Color(0xFFFFFFFF),
+          color: AppColors.colorWhite,
           fontWeight: FontWeight.normal,
         ),
       ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      // Add other theme properties as needed
     );
   }
 }
