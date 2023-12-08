@@ -9,4 +9,7 @@ class AppColors {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
+
+  static const colorWhiteText = Color(0xFFB5B8BE);
+  static const colorWhite = Color(0xFFFFFFFF);
 }

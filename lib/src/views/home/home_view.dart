@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,7 +6,7 @@ import 'package:vava/src/core/app_colors.dart';
 import 'package:vava/src/core/app_icons.dart';
 import 'package:vava/src/core/app_images.dart';
 import 'package:vava/src/views/home/home_viewmodel.dart';
-import 'package:vava/src/widgets/text_button.dart';
+import 'package:vava/src/widgets/button_list.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -42,35 +40,9 @@ class HomeView extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 //menu
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButtonWidget(
-                        title: 'Popular',
-                        onTap: () {
-                          log('cricou');
-                        },
-                        textStyle: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      TextButtonWidget(
-                        title: 'Popular',
-                        onTap: () {
-                          log('cricou');
-                        },
-                        textStyle: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      TextButtonWidget(
-                        title: 'Popular',
-                        onTap: () {
-                          log('cricou');
-                        },
-                        textStyle: Theme.of(context).textTheme.titleMedium,
-                      ),
-                    ],
-                  ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  child: ButtonList(),
                 ),
                 //menu
                 //Lista
@@ -79,9 +51,9 @@ class HomeView extends StatelessWidget {
                   child: GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, // Number of columns
-                      crossAxisSpacing: 20.0, // Spacing between columns
-                      mainAxisSpacing: 20.0, // Spacing between rows
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 20.0,
+                      mainAxisSpacing: 20.0,
                     ),
                     itemCount: 10,
                     itemBuilder: (context, index) {
@@ -101,6 +73,30 @@ class HomeView extends StatelessWidget {
                             ),
                           ),
                           Image.asset(AppImages.viper),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'VIPER',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium!
+                                        .copyWith(color: AppColors.colorWhite),
+                                  ),
+                                  Text(
+                                    'Controllar',
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       );
                     },

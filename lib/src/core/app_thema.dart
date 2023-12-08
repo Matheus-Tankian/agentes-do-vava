@@ -19,6 +19,11 @@ class Themas {
           color: const Color(0xFFE55566),
           fontWeight: FontWeight.bold,
         ),
+        titleSmall: GoogleFonts.poppins(
+          fontSize: 14,
+          color: const Color(0xFFFFFFFF),
+          fontWeight: FontWeight.normal,
+        ),
       ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       // Add other theme properties as needed
