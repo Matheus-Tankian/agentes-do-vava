@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -49,7 +47,6 @@ class HomeView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: ButtonList(
                     onItemSelected: (value) {
-                      log('$value');
                       provider.changeIndexScreen(value);
                     },
                   ),
@@ -75,7 +72,6 @@ class HomeView extends StatelessWidget {
                           splashColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () {
-                            log('card');
                             Navigator.push(
                               context,
                               MaterialPageRoute(

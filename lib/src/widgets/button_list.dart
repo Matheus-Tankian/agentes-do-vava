@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:vava/src/core/app_colors.dart';
 import 'package:vava/src/widgets/text_button.dart';
@@ -27,7 +25,6 @@ class _ButtonListState extends State<ButtonList> {
         TextButtonWidget(
           title: 'Agents',
           onTap: () {
-            log('cricou');
             setState(() {
               selectedItem = 0;
             });
@@ -43,7 +40,6 @@ class _ButtonListState extends State<ButtonList> {
         TextButtonWidget(
           title: 'New One',
           onTap: () {
-            log('cricou');
             setState(() {
               selectedItem = 1;
             });
@@ -59,7 +55,6 @@ class _ButtonListState extends State<ButtonList> {
         TextButtonWidget(
           title: 'More',
           onTap: () {
-            log('cricou');
             setState(() {
               selectedItem = 2;
             });
