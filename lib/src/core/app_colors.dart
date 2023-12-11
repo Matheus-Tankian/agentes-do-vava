@@ -14,4 +14,7 @@ class AppColors {
   static const colorWhite = Color(0xFFFFFFFF);
   static const color = Color(0xFFFFFFFF);
   static const redGray = Color(0xFFE55566);
+
+  static const viperColor = Color(0xFF6FCF97);
+  static const secundaryColor = Color(0xFF13212E);
 }
