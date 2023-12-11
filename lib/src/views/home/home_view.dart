@@ -9,6 +9,8 @@ import 'package:vava/src/core/app_icons.dart';
 import 'package:vava/src/core/app_images.dart';
 import 'package:vava/src/views/home/home_detail/home_detail_view.dart';
 import 'package:vava/src/views/home/home_viewmodel.dart';
+import 'package:vava/src/views/more/more_view.dart';
+import 'package:vava/src/views/new_one/new_one_view.dart';
 import 'package:vava/src/widgets/button_list.dart';
 
 class HomeView extends StatelessWidget {
@@ -48,6 +50,7 @@ class HomeView extends StatelessWidget {
                   child: ButtonList(
                     onItemSelected: (value) {
                       log('$value');
+                      provider.changeIndexScreen(value);
                     },
                   ),
                 ),
@@ -56,83 +59,95 @@ class HomeView extends StatelessWidget {
                 const SizedBox(height: 30),
 
                 ///tela 1
-
-                Expanded(
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 20.0,
-                      mainAxisSpacing: 20.0,
+                Visibility(
+                  visible: provider.indexScreen == 0,
+                  child: Expanded(
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 20.0,
+                        mainAxisSpacing: 20.0,
+                      ),
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () {
+                            log('card');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) => const HomeDetailView()),
+                              ),
+                            );
+                          },
+                          child: Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              ClipPath(
+                                clipper: RoundedDiagonalPathClipper(),
+                                child: Container(
+                                  height: 190,
+                                  width: 162,
+                                  decoration: const BoxDecoration(
+                                    gradient: AppColors.linearGreen,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20.0)),
+                                  ),
+                                ),
+                              ),
+                              Image.asset(
+                                AppImages.viper,
+                                fit: BoxFit.cover,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 10,
+                                ),
+                                child: Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'VIPER',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!
+                                            .copyWith(
+                                                color: AppColors.colorWhite),
+                                      ),
+                                      Text(
+                                        'Controllar',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleSmall,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () {
-                          log('card');
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: ((context) => const HomeDetailView()),
-                            ),
-                          );
-                        },
-                        child: Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: [
-                            ClipPath(
-                              clipper: RoundedDiagonalPathClipper(),
-                              child: Container(
-                                height: 190,
-                                width: 162,
-                                decoration: const BoxDecoration(
-                                  gradient: AppColors.linearGreen,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20.0)),
-                                ),
-                              ),
-                            ),
-                            Image.asset(
-                              AppImages.viper,
-                              fit: BoxFit.cover,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 10,
-                              ),
-                              child: Align(
-                                alignment: Alignment.bottomLeft,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'VIPER',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleMedium!
-                                          .copyWith(
-                                              color: AppColors.colorWhite),
-                                    ),
-                                    Text(
-                                      'Controllar',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
                   ),
                 ),
+                Visibility(
+                  visible: provider.indexScreen == 1,
+                  child: const NewOneView(),
+                ),
+                Visibility(
+                  visible: provider.indexScreen == 2,
+                  child: const MoreView(),
+                ),
+
                 //Lista
               ],
             ),
