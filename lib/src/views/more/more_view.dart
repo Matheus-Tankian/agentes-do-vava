@@ -11,7 +11,7 @@ class MoreView extends StatelessWidget {
         SizedBox(height: MediaQuery.of(context).size.height * 0.2),
         Center(
           child: Text(
-            'Todos os direito reservado a RIOT.',
+            'All rights reserved to RIOT.',
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: AppColors.colorWhite,
                   fontSize: 20,
