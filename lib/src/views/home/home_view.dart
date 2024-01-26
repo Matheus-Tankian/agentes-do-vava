@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:vava/src/core/app_icons.dart';
-import 'package:vava/src/repository/home_repositories.dart';
-import 'package:vava/src/services/http/http_api.dart';
 import 'package:vava/src/views/agent_list/agent_list.dart';
 import 'package:vava/src/views/home/home_viewmodel.dart';
 import 'package:vava/src/views/more/more_view.dart';
@@ -16,11 +14,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<HomeViewModel>(
-      create: (_) => HomeViewModel(
-        repository: AgenteRepository(
-          client: HttpClient(),
-        ),
-      ),
+      create: (_) => HomeViewModel(),
       child: Consumer<HomeViewModel>(
         builder: (_, provider, __) => SafeArea(
           child: Padding(
