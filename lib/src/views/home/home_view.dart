@@ -50,7 +50,7 @@ class HomeView extends StatelessWidget {
                 ),
                 //menu
                 //Lista
-                const SizedBox(height: 30),
+                //const SizedBox(height: 30),
 
                 ///tela 1
                 Visibility(

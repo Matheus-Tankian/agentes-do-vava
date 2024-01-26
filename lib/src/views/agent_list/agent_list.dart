@@ -16,6 +16,7 @@ class _AgentsListState extends State<AgentsList> {
   Widget build(BuildContext context) {
     return Expanded(
       child: GridView.builder(
+        padding: const EdgeInsets.symmetric(vertical: 30),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 20.0,
