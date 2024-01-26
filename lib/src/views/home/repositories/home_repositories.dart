@@ -25,10 +25,10 @@ class AgenteRepository implements ImpleAgentRepository {
 
       body['valorant'].map((item) {
         final AgentsModel produto = AgentsModel.fromJson(item);
-        produtos.add(produto);
+        agets.add(produto);
       }).toList();
 
-      return produtos;
+      return agets;
     } else if (response.statusCode == 404) {
       throw NotFoundExeption('URL nao encontrada');
     } else {
