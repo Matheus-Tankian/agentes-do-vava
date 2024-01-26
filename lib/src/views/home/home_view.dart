@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:vava/src/core/app_icons.dart';
+import 'package:vava/src/repository/home_repositories.dart';
 import 'package:vava/src/services/http/http_api.dart';
 import 'package:vava/src/views/agent_list/agent_list.dart';
 import 'package:vava/src/views/home/home_viewmodel.dart';
-import 'package:vava/src/views/home/repositories/home_repositories.dart';
 import 'package:vava/src/views/more/more_view.dart';
 import 'package:vava/src/views/new_one/new_one_view.dart';
 import 'package:vava/src/widgets/button_list.dart';
@@ -57,7 +57,6 @@ class HomeView extends StatelessWidget {
                 //menu
                 //Lista
                 //const SizedBox(height: 30),
-
                 ///tela 1
                 Visibility(
                   visible: provider.indexScreen == 0,
@@ -71,7 +70,6 @@ class HomeView extends StatelessWidget {
                   visible: provider.indexScreen == 2,
                   child: const MoreView(),
                 ),
-
                 //Lista
               ],
             ),

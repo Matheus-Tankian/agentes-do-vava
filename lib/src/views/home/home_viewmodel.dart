@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:vava/src/repository/home_repositories.dart';
 import 'package:vava/src/services/http/exeptions.dart';
-import 'package:vava/src/views/home/repositories/home_repositories.dart';
 
 class HomeViewModel extends ChangeNotifier {
   final ImpleAgentRepository repository;
@@ -25,7 +25,7 @@ class HomeViewModel extends ChangeNotifier {
     log('aq');
     try {
       final result = await repository.getAgents();
-      log('${result.first.agentName}');
+      log(result.first.agentName);
     } on NotFoundExeption catch (e) {
       e.message;
       log(e.message);

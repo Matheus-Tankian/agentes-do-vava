@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:vava/src/services/http/exeptions.dart';
 import 'package:vava/src/services/http/http_api.dart';
-import 'package:vava/src/views/home/model/agents_model.dart';
+import 'package:vava/src/models/agents_model.dart';
 
 abstract class ImpleAgentRepository {
   Future<List<AgentsModel>> getAgents();

@@ -6,14 +6,19 @@ class MoreView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Todos os direito reservado a RIOT',
-        style: Theme.of(context).textTheme.titleMedium!.copyWith(
-              color: AppColors.colorWhite,
-              fontSize: 20,
-            ),
-      ),
+    return Column(
+      children: [
+        SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+        Center(
+          child: Text(
+            'All rights reserved to RIOT.',
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: AppColors.colorWhite,
+                  fontSize: 20,
+                ),
+          ),
+        ),
+      ],
     );
   }
 }
