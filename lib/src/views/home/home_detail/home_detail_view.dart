@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:vava/src/core/app_colors.dart';
-import 'package:vava/src/core/app_images.dart';
+import 'package:vava/src/models/agents_model.dart';
 import 'package:vava/src/widgets/power_card.dart';
 import 'package:vava/src/widgets/section_text.dart';
 
 class HomeDetailView extends StatefulWidget {
-  const HomeDetailView({super.key});
+  final AgentsModel agente;
+  const HomeDetailView({
+    super.key,
+    required this.agente,
+  });
 
   @override
   State<HomeDetailView> createState() => _HomeDetailViewState();
@@ -34,21 +38,23 @@ class _HomeDetailViewState extends State<HomeDetailView> {
               Container(
                 height: 190,
                 width: double.infinity,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
                     opacity: 0.8,
-                    image: AssetImage(AppImages.viper),
+                    image: NetworkImage(
+                      widget.agente.agentImage.url,
+                    ),
                     fit: BoxFit.none,
                     alignment: Alignment.topLeft,
                   ),
                   gradient: AppColors.linearGreen,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(10),
                     bottomRight: Radius.circular(10),
                   ),
                 ),
-                child: Image.asset(
-                  AppImages.viper,
+                child: Image.network(
+                  widget.agente.agentImage.url,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -61,7 +67,7 @@ class _HomeDetailViewState extends State<HomeDetailView> {
                       title: 'BIOGRAPHY',
                     ),
                     Text(
-                      'A phantom of a memory. Omen hunts in the shadows. He renders enemies blind, teleports across the field.',
+                      widget.agente.biography,
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium!
@@ -79,14 +85,15 @@ class _HomeDetailViewState extends State<HomeDetailView> {
                 padding: const EdgeInsets.symmetric(horizontal: 35),
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: 5,
+                itemCount: widget.agente.specialAbilities.length,
                 itemBuilder: (context, index) {
-                  return const Padding(
-                    padding: EdgeInsets.only(bottom: 26),
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 26),
                     child: PowerCard(
-                      imagem: AppImages.power,
-                      title: 'PARANOIA',
-                      subtitle: 'Shadow power',
+                      imagem: widget.agente.specialAbilities[index].image.url,
+                      title: widget.agente.specialAbilities[index].name
+                          .toUpperCase(),
+                      subtitle: widget.agente.specialAbilities[index].name,
                     ),
                   );
                 },
