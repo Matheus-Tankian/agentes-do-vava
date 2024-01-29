@@ -8,7 +8,7 @@ class AgentReposityImpl implements AgentReposity {
   //final ApiBaseHelper _apiBaseHelper = ApiBaseHelper();
   @override
   Future<List<AgentsModel>> getAllAgents() async {
-    //final response = await _apiBaseHelper.get(getEscolasUrl());
+    //final response = await _apiBaseHelper.get(getAllAgentsUrl());
     final response = [];
     Iterable list = response.map((agents) => agents.toMap());
 
