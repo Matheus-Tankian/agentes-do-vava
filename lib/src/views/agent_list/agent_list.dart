@@ -49,7 +49,14 @@ class _AgentsListState extends State<AgentsList> {
                     height: 190,
                     width: 162,
                     decoration: const BoxDecoration(
-                      gradient: AppColors.linearGreen,
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFF303F9F),
+                          Color(0xFF7C4DFF),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ), //AppColors.linearGreen,
                       borderRadius: BorderRadius.all(Radius.circular(20.0)),
                     ),
                   ),
