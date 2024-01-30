@@ -4,6 +4,8 @@ class AgentsModel {
   String agentClass;
   String biography;
   AgentImageModel agentImage;
+  String firstColor;
+  String secondColor;
   List<SpecialAbilityModel> specialAbilities;
 
   AgentsModel({
@@ -12,6 +14,8 @@ class AgentsModel {
     required this.agentClass,
     required this.biography,
     required this.agentImage,
+    required this.firstColor,
+    required this.secondColor,
     required this.specialAbilities,
   });
 
@@ -21,6 +25,8 @@ class AgentsModel {
         agentClass: (map['agent_class'] ?? '').toString(),
         biography: (map['biography'] ?? '').toString(),
         agentImage: AgentImageModel.fromMap(map['agent_image']),
+        firstColor: (map['first_color'] ?? 0).toString(),
+        secondColor: (map['second_color'] ?? 0).toString(),
         specialAbilities: (map['special_ability'] as List)
             .map((item) => SpecialAbilityModel.fromMap(item))
             .toList(),

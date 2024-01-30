@@ -20,7 +20,7 @@ class _HomeDetailViewState extends State<HomeDetailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF02772D),
+        backgroundColor: Color(int.parse(widget.agente.firstColor)),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
@@ -47,7 +47,18 @@ class _HomeDetailViewState extends State<HomeDetailView> {
                     fit: BoxFit.none,
                     alignment: Alignment.topLeft,
                   ),
-                  gradient: AppColors.linearGreen,
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(
+                        int.parse(widget.agente.firstColor),
+                      ),
+                      Color(
+                        int.parse(widget.agente.secondColor),
+                      ),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(10),
                     bottomRight: Radius.circular(10),
