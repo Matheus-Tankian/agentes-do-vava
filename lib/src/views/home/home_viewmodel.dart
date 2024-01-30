@@ -51,17 +51,6 @@ class HomeViewModel extends ChangeNotifier {
       changeLoadPage(false);
       log('ERROR: $e');
     }
-    // for (final x in result) {
-    //   log('id: ${x.id}');
-    //   log('nome: ${x.agentName}');
-    //   log('class: ${x.agentClass}');
-    //   log('biografia: ${x.biography}');
-    //   log('imagen: ${x.agentImage.url}');
-    //   for (final y in x.specialAbilities) {
-    //     log('special name:${y.name}');
-    //     log('special image:${y.image.url}');
-    //   }
-    // }
   }
 
   @override
