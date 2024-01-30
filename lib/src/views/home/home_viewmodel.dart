@@ -1,37 +1,55 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:vava/src/repository/home_repositories.dart';
-import 'package:vava/src/services/http/exeptions.dart';
+import 'package:vava/src/models/agents_model.dart';
+import 'package:vava/src/repository/agents/agents.dart';
 
 class HomeViewModel extends ChangeNotifier {
-  final ImpleAgentRepository repository;
+  final AgentReposity _agentReposity;
 
   bool _disposed = false;
 
   int _indexScreen = 0;
   int get indexScreen => _indexScreen;
 
+  List<AgentsModel> _agentensList = [];
+  List<AgentsModel> get agentensList => _agentensList;
+
+  bool _loadPage = false;
+  bool get loadPage => _loadPage;
+
+  HomeViewModel(this._agentReposity) {
+    loadFunctions();
+  }
+
+  Future<void> loadFunctions() async {
+    await getAgentsList();
+  }
+
+  changeLoadPage(bool value) {
+    _loadPage = value;
+    notifyListeners();
+  }
+
+  changeAgentensList(List<AgentsModel> value) {
+    _agentensList = value;
+    notifyListeners();
+  }
+
   changeIndexScreen(int value) {
     _indexScreen = value;
     notifyListeners();
   }
 
-  HomeViewModel({required this.repository}) {
-    getProdutos();
-  }
-
-  Future<void> getProdutos() async {
-    log('aq');
+  Future<void> getAgentsList() async {
     try {
-      final result = await repository.getAgents();
-      log(result.first.agentName);
-    } on NotFoundExeption catch (e) {
-      e.message;
-      log(e.message);
+      changeLoadPage(true);
+      final result = await _agentReposity.getAllAgents();
+      await changeAgentensList(result);
+      changeLoadPage(false);
     } catch (e) {
-      e.toString();
-      log(e.toString());
+      changeLoadPage(false);
+      log('ERROR: $e');
     }
   }
 

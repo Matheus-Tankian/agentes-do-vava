@@ -10,6 +10,13 @@ class AppColors {
     end: Alignment.bottomCenter,
   );
 
+  static const linearBlue = LinearGradient(
+    colors: [
+      Color(0xFF303F9F),
+      Color(0xFF7C4DFF),
+    ],
+  );
+
   static const colorWhiteText = Color(0xFFB5B8BE);
   static const colorWhite = Color(0xFFFFFFFF);
   static const color = Color(0xFFFFFFFF);

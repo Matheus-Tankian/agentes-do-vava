@@ -26,9 +26,13 @@ class PowerCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(width: 10),
-          Image.asset(
-            imagem,
-            fit: BoxFit.cover,
+          SizedBox(
+            height: 30,
+            width: 30,
+            child: Image.network(
+              imagem,
+              fit: BoxFit.cover,
+            ),
           ),
           const SizedBox(width: 10),
           Column(
@@ -40,14 +44,6 @@ class PowerCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       fontSize: 15,
                       color: AppColors.colorWhite,
-                    ),
-              ),
-              Text(
-                subtitle,
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      fontSize: 15,
-                      color: AppColors.colorWhite,
-                      fontWeight: FontWeight.normal,
                     ),
               ),
             ],
