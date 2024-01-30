@@ -6,6 +6,10 @@ void main() {
   runApp(const MyApp());
 }
 
+final navigationApp = GlobalKey<NavigatorState>(debugLabel: "navigationApp");
+final navigationScreen =
+    GlobalKey<NavigatorState>(debugLabel: "navigationScreen");
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -13,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigationApp,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: Themas().customTheme,

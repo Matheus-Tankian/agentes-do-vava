@@ -1,8 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:vava/main.dart';
 import 'package:vava/src/models/agents_model.dart';
 import 'package:vava/src/repository/agents/agents.dart';
+import 'package:vava/src/widgets/snackbar_widget.dart';
 
 class HomeViewModel extends ChangeNotifier {
   final AgentReposity _agentReposity;
@@ -49,8 +49,17 @@ class HomeViewModel extends ChangeNotifier {
       changeLoadPage(false);
     } catch (e) {
       changeLoadPage(false);
-      log('ERROR: $e');
+      showSnackbar('$e', true);
     }
+  }
+
+  void showSnackbar(String title, bool erro) {
+    showSnackBarMessage(
+      navigationApp.currentContext!,
+      message: title,
+      backgroundColor: erro ? Colors.red : Colors.green,
+      duration: const Duration(seconds: 2),
+    );
   }
 
   @override
