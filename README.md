@@ -4,13 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Esse projeto foi feito com Flutter e xano como banco de dados.
 
-A few resources to get you started if this is your first Flutter project:
+Essa e a imagens do banco xano!
+![https://github.com/Matheus-Tankian/agentes-do-vava/blob/main/Captura%20de%20Tela%20(98).png]
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Essa e a imagens do app integrado com a api do xano
+![https://github.com/Matheus-Tankian/agentes-do-vava/blob/main/Screenshot_1706622842.png]
+![https://github.com/Matheus-Tankian/agentes-do-vava/blob/main/Screenshot_1706622849.png]
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
